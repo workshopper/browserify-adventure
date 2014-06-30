@@ -1,0 +1,27 @@
+{
+  "name": "browserify-adventure",
+  "version": "1.0.0",
+  "description": "learn browserify with this educational adventure",
+  "main": "index.js",
+  "dependencies": {
+    "adventure": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/browserify-adventure.git"
+  },
+  "homepage": "https://github.com/substack/browserify-adventure",
+  "keywords": [
+    "browserify",
+    "education",
+    "nodeschool",
+    "workshop",
+    "edutainment"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT"
+}
