@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 var path = require('path');
-var workshoppe = require('workshoppe');
-var shop = workshoppe('browserify-adventure');
+var adventure = require('adventure');
+var shop = adventure('browserify-adventure');
 
 require('../menu.json').forEach(function (name) {
     var d = name.toLowerCase().replace(/\W+/g, '_');
