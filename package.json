@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "learn browserify with this educational adventure",
   "main": "index.js",
+  "bin": {
+    "browserify-adventure": "bin/cmd.js"
+  },
   "dependencies": {
-    "adventure": "^1.0.0"
+    "adventure": "^1.0.0",
+    "faucet": "~0.0.1",
+    "tap-parser": "~0.5.0",
+    "tape": "~2.13.2"
   },
   "repository": {
     "type": "git",
