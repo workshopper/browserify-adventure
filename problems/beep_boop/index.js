@@ -1,12 +1,10 @@
 var fs = require('fs');
-var tape = require('tape');
+var verify = require('adventure-verify');
 
-exports.show = function () {
-    return fs.createReadStream(__dirname + '/problem.txt');
-};
+exports.problem = fs.createReadStream(__dirname + '/problem.txt');
+exports.solution = fs.createReadStream(__dirname + '/solution.txt');
 
-exports.verify = require('../../lib/verify.js')(function (args, t) {
-    t.plan(2);
-    t.ok(true, 'beep boop...');
-    t.equal(1+1, 2);
+exports.verify = verify({ modeReset: true }, function (args, t) {
+    t.plan(1);
+    t.equal(args[0], '555');
 });
