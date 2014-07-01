@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "adventure": "^2.3.0",
-    "adventure-verify": "^2.1.1"
+    "adventure-verify": "^2.1.1",
+    "concat-stream": "^1.4.6",
+    "browser-unpack": "~0.2.3"
   },
   "repository": {
     "type": "git",

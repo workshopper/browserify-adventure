@@ -1,1 +1,14 @@
 Here's the reference solution:
+
+  console.log('BEEP BOOP');
+
+We piped the output of browserify into the verify command directly, but
+ordinarily to use browserify in your page you would do:
+
+  browserify beep_boop.js > bundle.js
+
+and then in your html, you just add a single <script> tag:
+
+  <script src="bundle.js"></script>
+
+We'll be doing this for real in some of the later challenges.

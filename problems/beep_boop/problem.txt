@@ -1,1 +1,16 @@
-problem statement goes here...
+First of all, make sure you have `browserify` installed as a command in
+your $PATH.
+
+You can do this by running:
+
+  npm install -g browserify
+
+If you get permission errors, try putting `sudo` in front of that command.
+
+Once you have browserify installed, write a program that prints the string
+'BEEP BOOP' using `console.log()`.
+
+Compile your program with `browserify` and pipe the bundle into
+`$ADVENTURE_COMMAND verify` like this:
+
+  browserify beep_boop.js | $ADVENTURE_COMMAND verify
