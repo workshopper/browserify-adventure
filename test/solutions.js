@@ -23,6 +23,14 @@ var customBuild = {
     }
 };
 
+var customRun = {
+    'BUILD A WIDGET': function (dir) {
+        setTimeout(function () {
+            spawn('google-chrome', [ 'http://localhost:55500' ]);
+        }, 1000);
+    }
+};
+
 test(function (t) {
     t.plan(names.length * 2);
     
@@ -50,6 +58,8 @@ test(function (t) {
             }
             else b = browserify(main).bundle();
             b.pipe(ps.stdin);
+            
+            if (customRun[name]) customRun[name]();
         });
     })();
 });
