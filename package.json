@@ -14,6 +14,7 @@
     "falafel": "~0.3.1"
   },
   "devDependencies": {
+    "browserify": "^4.2.0",
     "tape": "^2.13.3",
     "uniq": "^1.0.1"
   },
