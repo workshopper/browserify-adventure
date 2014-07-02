@@ -18,6 +18,9 @@
     "tape": "^2.13.3",
     "uniq": "^1.0.1"
   },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/substack/browserify-adventure.git"
