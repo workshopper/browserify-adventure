@@ -1,13 +1,25 @@
-Here's the reference solution:
+Here's the reference solution entry point (main.js):
 
+  var uniquely = require('./uniquely.js');
+  var result = uniquely(prompt());
+  console.log(result);
+
+and this is the reference uniquely.js:
+
+  var uniq = require('uniq');
   
+  module.exports = function (str) {
+    return uniq(str.split(','));
+  };
 
-`module` is a special variable pre-defined for every file in node. It has a
-property called `module.exports` that is used to set what a file should 
-export when `require()` is used to load the file. browserify copies this 
-functionality to make this way of exposing modules available to browser 
-code.
+As we've just seen, `module` is a special variable pre-defined in node and
+browserify for each file. We used `module.exports` to export a single
+function from `uniquely.js` that we used from our entry point, main.js.
 
-In node, if `require()` is given a string that starts with a `./`, it will
-look in the currently-executing file's directory for that file.
+browserify concatenated all the files together into a single file that
+can be shipped to browsers, even though there are multiple files being
+loaded.
 
+We also saw the difference between loading local packages with a relative
+path (`require('./uniquely.js'`) and loading packages that we installed
+with npm (`require('uniq')`).
