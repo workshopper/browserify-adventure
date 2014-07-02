@@ -21,3 +21,8 @@ starting from uniquely.js) and pipe the bundle into
 `$ADVENTURE_COMMAND verify` like this:
 
   browserify main.js | $ADVENTURE_COMMAND verify
+
+If you just want to run your solution with the test input without verifying
+it you can do:
+
+  browserify main.js | $ADVENTURE_COMMAND run
