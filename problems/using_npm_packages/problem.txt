@@ -12,8 +12,9 @@ just like you would do in node.js!
 items from an array input `xs`.
 
 For this level, use `prompt()` to fetch a string. Split the string that
-`prompt()` returns by comma (',') and run the result through `uniq()` to
-discard repeated items. `console.log()` the resulting uniq array.
+`prompt()` returns by commas (`str.split(',')` returns a separated array of
+strings) and run this array through `uniq()` to discard repeated items.
+Use `console.log()` to print the resulting uniq array.
 
 Compile your program with `browserify` and pipe the bundle into
 `$ADVENTURE_COMMAND verify` like this:
