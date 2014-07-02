@@ -9,7 +9,9 @@ the `a` variable.
 When the module path begins with a "./", it is interpreted as path relative to
 the currently executing file.
 
-Write a program that loads `'foo.js'` from the local directory. `'foo.js'` will
+Write a program that loads `'foo.js'` from the local directory.
+
+`'foo.js'` will
 export a single function as its exported value. Call the function exported by
 foo.js with process.argv[2] as an argument and print the result with
 console.log().
