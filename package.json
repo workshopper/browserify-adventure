@@ -11,10 +11,15 @@
     "adventure-verify": "^2.1.1",
     "browser-unpack": "~0.2.3",
     "concat-stream": "^1.4.6",
-    "falafel": "~0.3.1"
+    "ecstatic": "~0.5.4",
+    "falafel": "~0.3.1",
+    "shoe": "~0.0.15",
+    "split": "^0.3.0",
+    "through2": "~1.0.0"
   },
   "devDependencies": {
     "browserify": "^4.2.0",
+    "domify": "^1.2.2",
     "tape": "^2.13.3",
     "uniq": "^1.0.1"
   },

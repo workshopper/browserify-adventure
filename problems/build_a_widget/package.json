@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "browserify -d -x widget browser.js -o static/bundle.js"
+  }
+}

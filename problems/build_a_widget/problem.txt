@@ -1,0 +1,27 @@
+This time the verifier will call your code. It will do something like this:
+
+  var Widget = require('widget');
+  var w = Widget();
+  w.setName('beep boop');
+  w.appendTo(document.body);
+
+You should implement the widget module that will be loaded with
+`require('widget')`. Your widget module should create an html element from
+the html string:
+
+  <div>Hello <span class="name"></span>!</div>
+
+To turn this html string into a dom element, you can use the domify package
+from npm:
+
+  npm install domify
+
+and then do `require('domify')` to get a `domify(html)` function that
+returns html elements. Otherwise you can create a dom element with
+`document.createElement('div')` and then set its innerHTML directly.
+
+Compile your program with `browserify -r ./widget.js:widget` to create a
+bundle that will expose `require('widget')` to the environment and pipe the
+bundle output into `$ADVENTURE_COMMAND verify` like this:
+
+  browserify -r ./widget.js:widget | $ADVENTURE_COMMAND verify
