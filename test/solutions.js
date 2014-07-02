@@ -26,8 +26,10 @@ var customBuild = {
 var customRun = {
     'BUILD A WIDGET': function (t) {
         setTimeout(function () {
-            var ps = spawn('chromium-browser', [ 'http://localhost:55500' ]);
-            t.on('end', function () { ps.kill() });
+            var ps = spawn('xvfb-run', [
+                '-a', 'chromium-browser', 'http://localhost:55500'
+            ]);
+            t.on('end', function () { ps.kill('SIGKILL') });
         }, 1000);
     }
 };
