@@ -24,4 +24,7 @@ Compile your program with `browserify -r ./widget.js:widget` to create a
 bundle that will expose `require('widget')` to the environment and pipe the
 bundle output into `$ADVENTURE_COMMAND verify` like this:
 
-  browserify -r ./widget.js:widget | $ADVENTURE_COMMAND verify
+  browserify -d -r ./widget.js:widget | $ADVENTURE_COMMAND verify
+
+The `-d` turns on debug mode so you will get a stack trace with the proper
+line offsets if there is an error.

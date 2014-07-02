@@ -34,7 +34,7 @@ function createServer (body, t) {
     });
     server.listen(55500, function () {
         console.log('Web server running. Visit this URL:'
-            + 'http://localhost:' + server.address().port
+            + ' http://localhost:' + server.address().port
         );
     });
     var sock = shoe(function (stream) {
