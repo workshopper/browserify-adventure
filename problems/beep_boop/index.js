@@ -13,9 +13,9 @@ exports.verify = verify({ modeReset: true }, function (args, t) {
         catch (err) { return t.error('The input had a syntax error!') }
         if (!rows) return t.error('The input is not a browserify bundle!');
         
-        t.equal(rows.length, 1);
-        t.equal(rows[0].entry, true);
-        t.deepEqual(rows[0].deps, {});
+        t.equal(rows.length, 1, 'a single file in this bundle');
+        t.equal(rows[0].entry, true, 'single file should be an entry file');
+        t.deepEqual(rows[0].deps, {}, "shouldn't have any deps");
         Function(['console'], body.toString())({
             log: function (msg) { t.equal(msg, 'BEEP BOOP') },
             error: console.error
