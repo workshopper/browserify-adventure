@@ -1,0 +1,27 @@
+Here's the reference solution:
+
+  var domify = require('domify');
+  var html = '<div>Hello <span class="name"></span>!</div>';
+  
+  module.exports = Widget;
+  
+  function Widget () {
+    if (!(this instanceof Widget)) return new Widget;
+    this.element = domify(html);
+  }
+  
+  Widget.prototype.setName = function (name) {
+    this.element.querySelector('.name').textContent = name;
+  };
+  
+  Widget.prototype.appendTo = function (target) {
+    target.appendChild(this.element);
+  };
+
+There are lots of ways to complete this level, so your solution might look
+quite different!
+
+In this solution, we create an element with a string of html every time the
+widget gets instantiated. When `setName()` is called, we find the `name`
+span and update its text content. When `appendTo(target)` is called, we
+append the widget's html element to the target element.
