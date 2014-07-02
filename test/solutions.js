@@ -24,9 +24,10 @@ var customBuild = {
 };
 
 var customRun = {
-    'BUILD A WIDGET': function (dir) {
+    'BUILD A WIDGET': function (t) {
         setTimeout(function () {
-            spawn('chromium-browser', [ 'http://localhost:55500' ]);
+            var ps = spawn('chromium-browser', [ 'http://localhost:55500' ]);
+            t.on('end', function () { ps.kill() });
         }, 1000);
     }
 };
@@ -59,7 +60,7 @@ test(function (t) {
             else b = browserify(main).bundle();
             b.pipe(ps.stdin);
             
-            if (customRun[name]) customRun[name]();
+            if (customRun[name]) customRun[name](t);
         });
     })();
 });
