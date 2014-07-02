@@ -1,0 +1,13 @@
+Here's the reference solution:
+
+  
+
+`module` is a special variable pre-defined for every file in node. It has a
+property called `module.exports` that is used to set what a file should 
+export when `require()` is used to load the file. browserify copies this 
+functionality to make this way of exposing modules available to browser 
+code.
+
+In node, if `require()` is given a string that starts with a `./`, it will
+look in the currently-executing file's directory for that file.
+

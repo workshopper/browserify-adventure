@@ -10,8 +10,8 @@ exports.verify = verify({ modeReset: true }, function (args, t) {
     t.plan(10);
     process.stdin.pipe(concat(function (body) {
         try { var rows = unpack(body) }
-        catch (err) { return t.error('The input had a syntax error!') }
-        if (!rows) return t.error('The input is not a browserify bundle!');
+        catch (err) { return t.fail('The input had a syntax error!') }
+        if (!rows) return t.fail('The input is not a browserify bundle!');
         
         t.equal(rows.length, 2, '2 files');
         

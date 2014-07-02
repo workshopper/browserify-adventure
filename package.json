@@ -9,8 +9,13 @@
   "dependencies": {
     "adventure": "^2.3.0",
     "adventure-verify": "^2.1.1",
+    "browser-unpack": "~0.2.3",
     "concat-stream": "^1.4.6",
-    "browser-unpack": "~0.2.3"
+    "falafel": "^0.3.1"
+  },
+  "devDependencies": {
+    "tape": "^2.13.3",
+    "uniq": "^1.0.1"
   },
   "repository": {
     "type": "git",

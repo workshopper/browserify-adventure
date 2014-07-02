@@ -19,4 +19,4 @@ Use `console.log()` to print the resulting uniq array.
 Compile your program with `browserify` and pipe the bundle into
 `$ADVENTURE_COMMAND verify` like this:
 
-  browserify using_npm.js | $ADVENTURE_COMMAND verify
+  browserify main.js | $ADVENTURE_COMMAND verify

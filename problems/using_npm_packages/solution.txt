@@ -1,8 +1,8 @@
 Here's the reference solution:
 
   var uniq = require('uniq');
-  var list = prompt('enter a list')
-  console.log(uniq(list.split(',')));
+  var list = prompt('enter a list').split(',');
+  console.log(uniq(list));
 
 When we compiled with browserify starting at the entry file, browserify saw
 the `require('uniq')` and placed the uniq module into that concatenated

@@ -1,0 +1,23 @@
+In the last adventure we used a package from npm. This time, we will factor
+our code into 2 files using a relative `require()` call and
+`module.exports`.
+
+First, create a file called `uniquely.js`. In this file, assign a function
+to `module.exports` that takes a comma-separated string as input and
+returns a uniq list as output. Use the `uniq` module like from the "using
+npm packages" level.
+
+Now in your entry file (the file that you pass to the browserify command),
+use `require()` with a relative path string to your `'./uniquely.js'`
+file.
+
+When you `require()` the `uniquely.js` file, `require()` will return
+whatever value you set `module.exports` to in `uniquely.js`. Call the
+exported function with the value from `prompt()` as an argument and print
+the return value with `console.log()`.
+
+Compile your program with `browserify` starting at your entry file (NOT
+starting from uniquely.js) and pipe the bundle into
+`$ADVENTURE_COMMAND verify` like this:
+
+  browserify main.js | $ADVENTURE_COMMAND verify

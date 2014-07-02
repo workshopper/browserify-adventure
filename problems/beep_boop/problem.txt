@@ -13,4 +13,5 @@ Once you have browserify installed, write a program that prints the string
 Compile your program with `browserify` and pipe the bundle into
 `$ADVENTURE_COMMAND verify` like this:
 
-  browserify beep_boop.js | $ADVENTURE_COMMAND verify
+  browserify main.js | $ADVENTURE_COMMAND verify
+
