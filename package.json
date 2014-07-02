@@ -1,13 +1,13 @@
 {
   "name": "browserify-adventure",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "learn browserify with this educational adventure",
   "main": "index.js",
   "bin": {
     "browserify-adventure": "bin/cmd.js"
   },
   "dependencies": {
-    "adventure": "^2.3.0",
+    "adventure": "^2.5.0",
     "adventure-verify": "^2.1.1",
     "browser-unpack": "~0.2.3",
     "concat-stream": "^1.4.6",
