@@ -15,7 +15,7 @@
     "falafel": "~0.3.1",
     "shoe": "~0.0.15",
     "split": "^0.3.0",
-    "through2": "~1.0.0"
+    "through2": "~0.5.1"
   },
   "devDependencies": {
     "browserify": "^4.2.0",
