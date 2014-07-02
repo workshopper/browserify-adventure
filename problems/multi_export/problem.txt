@@ -1,0 +1,29 @@
+Last time in "single export" we used `module.exports` to export a single
+function. There is another form called simply `exports` that you can attach
+properties to. This is a less common way of exporting functionality but is
+still useful in some circumstances, such a protocol with `.parse()` and
+`.stringify()` functions which are the inverses of each other.
+
+For this level, call `prompt()` twice from your entry file to obtain 2
+values: the first is a string you should parse into an array of objects and
+the second value is an array you should serialize back into a string.
+
+In a second file `./ndjson.js`, export a `parse()` and `stringify()`
+function by assigning properties onto the `exports` object.
+
+`.parse(str)` will get a newline-separated string `str` of json stringified
+json and should use JSON.parse() to parse each line of json into an array
+of results
+
+`.stringify(rows)` will get an array of `rows` and should return a
+newline-separated string of records with JSON.stringify()
+
+Compile your program with `browserify` starting at your entry file
+and pipe the bundle into `$ADVENTURE_COMMAND verify` like this:
+
+  browserify main.js | $ADVENTURE_COMMAND verify
+
+If you just want to run your solution with the test input without verifying
+it you can do:
+
+  browserify main.js | $ADVENTURE_COMMAND run
