@@ -26,7 +26,7 @@ var customBuild = {
 var customRun = {
     'BUILD A WIDGET': function (dir) {
         setTimeout(function () {
-            spawn('google-chrome', [ 'http://localhost:55500' ]);
+            spawn('chromium-browser', [ 'http://localhost:55500' ]);
         }, 1000);
     }
 };
