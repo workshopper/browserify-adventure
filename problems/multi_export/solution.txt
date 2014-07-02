@@ -1,0 +1,27 @@
+Here's the reference solution entry point (main.js):
+
+  var ndjson = require('./ndjson.js');
+  
+  console.log(ndjson.parse(prompt()));
+  console.log(ndjson.stringify(prompt()));
+
+and this is the reference ndjson.js:
+
+  exports.parse = function (str) {
+    return str.split('\n').map(JSON.parse);
+  };
+
+  exports.stringify = function (rows) {
+    return rows.map(JSON.stringify).join('\n');
+  };
+
+It would have also worked to assign onto `module.exports.parse` and
+`module.exports.stringify` since `exports === module.exports`. However, you
+cannot assign onto `exports` with `exports = ` like you can with
+`module.exports` because the reference will be lost by the module system.
+
+Assigning a single value onto `module.exports` is more common, especially
+for functions and constructors since that usually maps well to each file
+doing a single thing well, but assigning properties onto `exports` like
+we've done here also has its place. For example, the exercises for
+$ADVENTURE_COMMAND are written with export-assignment.
