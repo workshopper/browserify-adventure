@@ -1,0 +1,19 @@
+Here's the reference solution:
+
+  var fs = require('fs');
+  var txt = fs.readFileSync('$WAKE_FILE', 'utf8');
+  var printf = require('printf');
+  
+  var lines = txt.split('\n');
+  lines.forEach(function (line, index) {
+      if (index % 5 === 0) {
+          console.log(printf('%3d %s', index, line));
+      }
+      else {
+          console.log('    ' + line);
+      }
+  });
+
+We use brfs to inline that `fs.readFileSync()` call and then we walk over
+each of the lines in the file, printing leading line numbers with some help
+from sprintf.
