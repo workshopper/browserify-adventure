@@ -1,1 +1,43 @@
-...
+Building upon the previous "using transforms" second, write a custom
+browserify transform so that in main.js you can simply do:
+
+  var txt = require('$WAKE_FILE');
+  console.log(txt);
+
+and the `txt` output will be formatted with the proper line-numbering as
+from the previous level: printf("%3d %s", lineNum, line) every 5th line
+line numbers starting from zero and four leading spaces on the other
+lines.
+
+You will need to factor out your formatting code to be a node transform
+stream, which you can learn more about in the stream-adventure nodeschool
+workshop. The basic signature of a browserify transform is:
+
+  module.exports = function (file) {
+    return stream;
+  };
+
+where `stream` is a transform stream that will be written the original
+source contents of `file` and should output the new transformed contents.
+
+The output of your stream will need to be valid javascript and will need to
+interface with the module system, so your transform stream should generate
+output that looks like:
+
+  module.exports = "...transformed content goes here..."
+
+You can either buffer up in the input with the `concat-stream` module and
+run your previous solution to the previous "using transforms" level or if
+you are feeling adventurous, you can string together the `split`,
+`quote-stream`, and `through` modules with `stream-combiner` to build a
+transform that processes the files in-place.
+
+You will need to run browserify with `-t ./tr.js` where `tr.js` is the
+filename of your transform. Copy the main.js from the beginning of this
+problem description then to verify your solution, do:
+
+  browserify -t ./tr.js main.js | $ADVENTURE_COMMAND verify
+
+or to run your solution without verifying it do:
+
+  browserify -t ./tr.js main.js | $ADVENTURE_COMMAND run
