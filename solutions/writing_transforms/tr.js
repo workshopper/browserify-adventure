@@ -2,6 +2,7 @@ var through = require('through2');
 var split = require('split');
 var sprintf = require('sprintf');
 var quote = require('quote-stream');
+var duplexer = require('duplexer2');
 var combiner = require('stream-combiner');
 
 module.exports = function (file) {
@@ -17,6 +18,6 @@ module.exports = function (file) {
         next();
     });
     var prefix = through();
-    prefix.push('module.exports=');
+    prefix.write('module.exports=');
     return combiner(split(), liner, quote(), prefix);
 };
