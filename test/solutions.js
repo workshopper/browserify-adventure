@@ -25,6 +25,11 @@ var customBuild = {
         var b = browserify(path.join(dir, 'main.js'));
         b.transform('brfs');
         return b.bundle();
+    },
+    'WRITING TRANSFORMS': function (dir) {
+        var b = browserify(path.join(dir, 'main.js'));
+        b.transform(path.join(dir, 'tr.js'));
+        return b.bundle();
     }
 };
 
