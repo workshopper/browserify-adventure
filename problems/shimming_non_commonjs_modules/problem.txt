@@ -1,0 +1,40 @@
+Some libraries are not commonJS compatible and need to be shimmed.  In our case
+we have library called spice-girls from the 90s which attaches a global to
+`Girls` to the window but fails to export it.
+
+In order to use this library with browserify we need to fix that.
+
+You learned about and used transforms in earlier problems and now you get to
+use another one.
+
+browserify-shim will export globals defined by libraries for you. 
+
+Let's assume for a moment we have a library inside `./lib/foo.js` that attaches
+a global `bar` to the `window`.
+We'd first install `browserify-shim` via `npm install browserify-shim` 
+and then create a `package.json` with the following config:
+
+```json
+{
+  "browser": {
+    "foo": "./lib/foo.js"
+  },
+  "browserify": {
+    "transform": "browserify-shim"
+  },
+  "browserify-shim": {
+    "foo": "bar"
+  }
+}
+```
+
+This teaches `browserify` where `foo.js` is and also tells it to run the
+`browserify-shim` transform. It then informs `browserify-shim` which property
+(`bar`) to export from the `window`.
+If you want more documentation and examples, please find it here: https://github.com/thlorenz/browserify-shim
+
+Your task is to create a similar `package.json` to tell `browserify` where the
+Spice Girls are and how to transform them to be more modern. 
+You are not allowed to change any of the JavaScript files.
+
+The spice-girls module is found at `./lib/spice-girls.js`.
