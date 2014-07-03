@@ -38,7 +38,7 @@ exports.verify = verify({ modeReset: true }, function (args, t) {
         files.ndjson = idMap[files.main.deps[mainDeps]];
         t.ok(
             !callsPrompt(files.ndjson.source),
-            'prompt() should not be called in your uniquely file'
+            'prompt() should not be called in your ndjson file'
         );
         
         var expected = [
