@@ -1,0 +1,54 @@
+For this problem, we will use a browserify transform to load a text file
+and then we will apply some processing to the text file.
+
+The text file you should read into your file is located at:
+$WAKE_FILE
+
+Use `brfs` to read that text file and print out the text file with leading
+line numbers every 5th line with line numbers starting at 0, inclusive of 0.
+
+You should pad the line number to 3 characters followed by a single space,
+followed by the original line contents. For lines without printed line
+numbers, print 4 spaces followed by the original line contents.
+
+Protip: you can use the sprintf module (`npm install sprintf`) with a
+format string of `"%3d %s"` to print the line number with the line in the
+proper format.
+
+For example, your output should look something like this:
+
+    everybody ever he met, even sharing a precipitation under the idlish
+ 10 tarriers' umbrella of a showerproof wall, while all over up and down
+    the four margins of this rancid Shem stuff the evilsmeller (who was
+    devoted to Uldfadar Sardanapalus) used to stipple endlessly inartistic
+    portraits of himself in the act of reciting old Nichiabilli's monolook
+    interyerear Hanno, o Nonanno, acce'l brubblemm'as, ser Autore, q.e.d.,
+ 15 a heartbreakingly handsome young paolo with love lyrics for the goyls
+
+With the `brfs` transform, you can load files with `fs.readFileSync()` and
+the results will be preprocessed into an inline string. For example, if you
+have:
+
+  var fs = require('fs');
+  var src = fs.readFileSync('beep.txt', 'utf8');
+  console.log(src);
+
+and you apply the `brfs` transform, then after the transformation the code
+becomes:
+
+  var src = "beep boop!\n";
+  console.log(src);
+
+To turn on a transform, use `-t brfs` when compiling browserify and make
+sure you install brfs with npm first:
+
+  npm install brfs
+
+Compile your program with `browserify -t brfs main.js` and pipe the bundle
+output into `$ADVENTURE_COMMAND verify` like this:
+
+  browserify -t brfs main.js | $ADVENTURE_COMMAND verify
+
+If you just want to run your solution without verifying you can do:
+
+  browserify -t brfs main.js | $ADVENTURE_COMMAND run
