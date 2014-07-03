@@ -1,1 +1,33 @@
-...
+Here is the reference solution for the more adventurous option:
+
+  var through = require('through2');
+  var split = require('split');
+  var sprintf = require('sprintf');
+  var quote = require('quote-stream');
+  var combiner = require('stream-combiner');
+  
+  module.exports = function (file) {
+      if (!/\.txt$/.test(file)) return through();
+      var num = 0;
+      var liner = through(function write (buf, enc, next) {
+          var line = buf.toString('utf8') + '\n';
+          if (num % 5 === 0) {
+              this.push(sprintf('%3d %s', num, line));
+          }
+          else this.push('    ' + line);
+          num ++;
+          next();
+      });
+      var prefix = through();
+      prefix.write('module.exports=');
+      return combiner(split(), liner, quote(), prefix);
+  };
+
+In this solution, for `.txt` files, we set up a pipeline with
+`stream-combiner`. The source contents are split up line-by-line with the
+`split` module, then our `liner` transform adds padded line numbers every
+5th line. We quote the result using `quote-stream` and add a
+`module.exports=` prefix to the entire result.
+
+You could've also just repurposed your solution to "using transforms" with
+concat-stream here too.

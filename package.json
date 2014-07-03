@@ -11,7 +11,6 @@
     "adventure-verify": "^2.1.1",
     "browser-unpack": "~0.2.3",
     "concat-stream": "^1.4.6",
-    "duplexer2": "0.0.2",
     "ecstatic": "~0.5.4",
     "falafel": "~0.3.1",
     "shoe": "~0.0.15",

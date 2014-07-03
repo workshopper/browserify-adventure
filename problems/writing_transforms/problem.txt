@@ -13,12 +13,21 @@ You will need to factor out your formatting code to be a node transform
 stream, which you can learn more about in the stream-adventure nodeschool
 workshop. The basic signature of a browserify transform is:
 
+  var through = require('through2');
+  
   module.exports = function (file) {
+    if (!/\.txt$/.test(file))) return through();
+    // ...
     return stream;
   };
 
 where `stream` is a transform stream that will be written the original
 source contents of `file` and should output the new transformed contents.
+
+Transforms are run on all files in the current package that are loaded with
+`require()`. For this problem we are only interested in transforming `.txt`
+files, so we return a passthrough stream if the file extension is not
+`.txt`.
 
 The output of your stream will need to be valid javascript and will need to
 interface with the module system, so your transform stream should generate
