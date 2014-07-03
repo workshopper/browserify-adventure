@@ -38,7 +38,7 @@ output that looks like:
 You can either buffer up in the input with the `concat-stream` module and
 run your previous solution to the previous "using transforms" level or if
 you are feeling adventurous, you can string together the `split`,
-`quote-stream`, and `through` modules with `stream-combiner` to build a
+`quote-stream`, and `through2` modules with `stream-combiner2` to build a
 transform that processes the files in-place.
 
 You will need to run browserify with `-t ./tr.js` where `tr.js` is the
