@@ -1,0 +1,11 @@
+{
+  "browser": {
+    "spice-girls": "./lib/spice-girls.js"
+  },
+  "browserify": {
+    "transform": "browserify-shim"
+  },
+  "browserify-shim": {
+    "spice-girls": "Girls"
+  }
+}
