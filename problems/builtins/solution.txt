@@ -1,0 +1,17 @@
+Here's the reference solution:
+
+  var url = require('url');
+  var querystring = require('querystring');
+  
+  var addr = prompt();
+  var query = url.parse(addr).query;
+  var params = querystring.parse(query);
+  console.log(url.resolve(addr, params.file));
+
+We get parse the address obtained from `prompt()` then parse out the
+querystring with `url.parse()` and parse that string into parameters with
+`querystring.parse()`. Finally we use `url.resolve()` to resolve the file
+parameter with respect to the address we obtained from `prompt()` earlier.
+
+`path`, `events`, and `stream` are other node builtins that are
+particularly useful in the browser.
