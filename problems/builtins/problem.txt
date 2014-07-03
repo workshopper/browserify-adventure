@@ -1,0 +1,43 @@
+browserify includes browser-compatible versions of many of the modules from
+node core such as: url, path, querystring, events, stream, util and more!
+This means that many modules written for node without the browser in mind
+will just work.
+
+For this level, `prompt()` will return a web address.
+Parse the address's query string and print the "file" parameter from the
+query string relative to the rest of the web address.
+
+For example, this address:
+
+  http://substack.net/filez/dogez/img.cgi?file=../hi/doge.gif
+
+should print:
+
+  http://substack.net/filez/hi/doge.gif
+
+Instead of using a hand-rolled parser, there are some very handy functions
+from node core you can use from the url and querystring modules.
+
+* url.parse(addr) takes a web address string and returns an object with all
+the components of the url. In particular you will want the "query" property
+from the result.
+
+* url.resolve(baseAddr, path) resolve the `path` string with respect to the
+baseAddr url.
+
+* querystring.parse(str) takes a querystring string `str` and returns an
+object mapping querystring keys to values
+
+Just `require('url')` and `require('querystring')` to get each of these
+modules. You don't need to run `npm install` for url or querystring because
+they are built into browserify similarly to how they are built into node.
+
+Compile your program with `browserify` and pipe the bundle into
+`$ADVENTURE_COMMAND verify` like this:
+
+  browserify main.js | $ADVENTURE_COMMAND verify
+
+If you just want to run your solution with the test input without verifying
+it you can do:
+
+  browserify main.js | $ADVENTURE_COMMAND run
