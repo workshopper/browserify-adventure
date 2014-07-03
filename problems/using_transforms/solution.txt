@@ -17,3 +17,7 @@ Here's the reference solution:
 We use brfs to inline that `fs.readFileSync()` call and then we walk over
 each of the lines in the file, printing leading line numbers with some help
 from sprintf.
+
+There are tons of transforms on npm for doing just about whatever you need!
+Check out the list here:
+https://npmjs.org/browse/keyword/browserify-transform

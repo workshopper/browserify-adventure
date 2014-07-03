@@ -1,5 +1,8 @@
 For this problem, we will use a browserify transform to load a text file
-and then we will apply some processing to the text file.
+and then we will apply some processing to the text file. Browserify
+transforms are used to pre-process input source files into something that
+browserify can read. For example, there are transforms for coffeescript
+(coffeeify), es6 syntax (es6ify), and more on npm!
 
 The text file you should read into your file is located at:
 $WAKE_FILE
