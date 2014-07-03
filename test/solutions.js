@@ -20,6 +20,11 @@ var customBuild = {
         var b = browserify();
         b.require(path.join(dir, 'widget.js'), { expose: 'widget' });
         return b.bundle();
+    },
+    'USING TRANSFORMS': function (dir) {
+        var b = browserify(path.join(dir, 'main.js'));
+        b.transform('brfs');
+        return b.bundle();
     }
 };
 
