@@ -1,6 +1,6 @@
 {
   "browser": {
-    "spice-girls": "./lib/spice-girls.js"
+    "spice-girls": "./spice-girls.js"
   },
   "browserify": {
     "transform": "browserify-shim"

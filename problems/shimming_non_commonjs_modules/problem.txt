@@ -35,6 +35,18 @@ If you want more documentation and examples, please find it here: https://github
 
 Your task is to create a similar `package.json` to tell `browserify` where the
 Spice Girls are and how to transform them to be more modern. 
-You are not allowed to change any of the JavaScript files.
 
-The spice-girls module is found at `./lib/spice-girls.js`.
+Create a new directory for your solution and copy these files into it:
+
+  $SPICE_FILE
+  $MAIN_FILE
+
+You should only create a package.json. Don't modify the javascript files.
+
+To verify your solution, from your solution directory do:
+
+  browserify main.js | browserify-adventure verify
+
+or to run your solution without verifying it, do:
+
+  browserify main.js | browserify-adventure run

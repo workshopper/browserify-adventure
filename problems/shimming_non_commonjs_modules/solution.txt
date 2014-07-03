@@ -1,15 +1,14 @@
-package.json:
+Here is the reference solution package.json:
 
-```json
-{
-  "browser": {
-    "spice-girls": "./lib/spice-girls.js"
-  },
-  "browserify": {
-    "transform": "browserify-shim"
-  },
-  "browserify-shim": {
-    "spice-girls": "Girls"
+  {
+    "browser": {
+      "spice-girls": "./spice-girls.js"
+    },
+    "browserify": {
+      "transform": "browserify-shim"
+    },
+    "browserify-shim": {
+      "spice-girls": "Girls"
+    }
   }
-}
-```
+

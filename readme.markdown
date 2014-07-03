@@ -19,7 +19,8 @@ npm install -g browserify-adventure browserify
 If you want to play offline, make a new directory then do:
 
 ```
-npm install uniq brfs through2 domify combine-stream sprintf
+npm install uniq brfs through2 domify stream-combiner sprintf \
+  quote-stream split browserify-shim
 ```
 
 # run

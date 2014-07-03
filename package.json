@@ -20,6 +20,7 @@
   "devDependencies": {
     "brfs": "^1.1.2",
     "browserify": "^4.2.0",
+    "browserify-shim": "^3.6.0",
     "domify": "^1.2.2",
     "quote-stream": "0.0.0",
     "sprintf": "~0.1.3",
