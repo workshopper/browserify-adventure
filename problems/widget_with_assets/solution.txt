@@ -1,18 +1,29 @@
 Here's the reference solution:
 
+  var fs = require('fs');
   var domify = require('domify');
-  var html = '<div>Hello <span class="name"></span>!</div>';
+  var insertCss = require('insert-css');
+  var inherits = require('inherits');
+  var EventEmitter = require('events').EventEmitter;
+  
+  var html = fs.readFileSync(__dirname + '/widget.html', 'utf8');
+  var css = fs.readFileSync(__dirname + '/widget.css', 'utf8');
+  insertCss(css);
   
   module.exports = Widget;
+  inherits(Widget, EventEmitter);
   
   function Widget () {
+    var self = this;
     if (!(this instanceof Widget)) return new Widget;
-    this.element = domify(html);
+    var form = this.element = domify(html);
+    
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var msg = form.querySelector('textarea[name="msg"]').value;
+      self.emit('message', msg);
+    });
   }
-  
-  Widget.prototype.setName = function (name) {
-    this.element.querySelector('.name').textContent = name;
-  };
   
   Widget.prototype.appendTo = function (target) {
     target.appendChild(this.element);
@@ -21,7 +32,12 @@ Here's the reference solution:
 There are lots of ways to complete this level, so your solution might look
 quite different!
 
-In this solution, we create an element with a string of html every time the
-widget gets instantiated. When `setName()` is called, we find the `name`
-span and update its text content. When `appendTo(target)` is called, we
-append the widget's html element to the target element.
+In this solution, we create a `Widget` constructor with an `.appendTo()`
+method. We use `brfs` to load html and css files. We use `domify` to turn
+those html strings into html elements and `insert-css` to insert the css
+file into the dom in a `<style>` tag.
+
+Once the element is constructed, we register a `"submit"` listener and emit
+a "message" event with the textarea content. We can emit these events
+because we inherited from the core EventEmitter with the `inherits`
+package.
