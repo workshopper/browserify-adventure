@@ -1,40 +1,78 @@
-This time the verifier will call your code. It will do something like this:
+This time you will create a widget to control a form with a text area.
+Your code will be called with something like this:
 
   var Widget = require('widget');
   var w = Widget();
-  w.setName('beep boop');
   w.appendTo(document.body);
+  
+  w.on('message', function (msg) {
+    console.log('sending message: ' + msg);
+  });
 
-You should implement the widget module that will be loaded with
-`require('widget')`. Your widget module should create an html element from
-the html string:
+Your widget should have a form with a textarea with name="msg" in it.
+Here's the HTML you can use:
 
-  <div>Hello <span class="name"></span>!</div>
+  <form class="send">
+    <textarea type="text" name="msg"></textarea>
+    <input type="submit" value="submit">
+  </form>
 
-To turn this html string into a dom element, you can use the domify package
-from npm:
+Your widget should also use css to set the textarea background color to
+"purple" and the foreground color to "yellow". Here is the css you can use
+for that:
 
-  npm install domify
+  .send textarea {
+    background-color: purple;
+    color: yellow;
+  }
 
-and then do `require('domify')` to get a `domify(html)` function that
-returns html elements. Otherwise you can create a dom element with
-`document.createElement('div')` and then set its innerHTML directly.
+You can use brfs to load each of these files as strings into your widget
+module. To insert the css into the dom, check out the `insert-css` package
+from npm.
 
-Your widget module will need to implement `w.setName(str)` and
-`w.appendTo(target)`. `w.setName(str)` will need to update the "name"
-span's inner context with `str`. You can set the span element's
-`.textContent` once you have a handle on the span which you can obtain with
-`elem.querySelector('css selector goes here')`.
+Like before, you can use the `domify` package from npm to turn the html
+string into an html element. Implement an `.appendTo(target)` function that
+adds your dom element to the target with `target.appendChild(elem)`.
 
-You will also need to implement `w.appendTo(target)`, which appends the
-widget's internal html element to `target`. You can use
-`target.appendChild(elem)` to append the widget's element to the target.
+Finally, your widget should register a form "submit" listener with
+`.addEventListener()` on your html form element. `.addEventListener()` is
+part of the dom and you can use it like this:
 
-Compile your program with `browserify -r ./widget.js:widget` to create a
-bundle that will expose `require('widget')` to the environment and pipe the
-bundle output into `$ADVENTURE_COMMAND verify` like this:
+  elem.addEventListener(evname, function (ev) {
+    ev.preventDefault();
+    // ...
+  });
 
-  browserify -d -r ./widget.js:widget | $ADVENTURE_COMMAND verify
+The `ev.preventDefault()` prevents the browser's default handlers from
+taking over so that you can implement custom functionality.
 
-The `-d` turns on debug mode so you will get a stack trace with the proper
-line offsets if there is an error.
+Your widget should also have an event-emitter API to emit a `"message"`
+event with the textarea content when the user submits the form.
+
+To implement an event-emitter API, you can either return a `new
+EventEmitter` from the `events` package that is built into browserify and
+node, or you can use the `inherits` package like this:
+
+  var EventEmitter = require('events').EventEmitter;
+  var inherits = require('inherits');
+  
+  module.exports = Widget;
+  inherits(Widget, EventEmitter);
+  
+  function Widget () {
+    if (!(this instanceof Widget)) return new Widget;
+  }
+
+then to emit an event, just do `this.emit("evname", args...)`.
+
+Here are the modules you might need for this level:
+
+  npm install brfs domify insert-css inherits
+
+If you use brfs, compile your program with:
+
+  browserify -t brfs -d -r ./widget.js:widget | $ADVENTURE_COMMAND verify
+
+If you just want to run your solution without verification, do:
+
+  browserify -t brfs -d -r ./widget.js:widget | $ADVENTURE_COMMAND run
