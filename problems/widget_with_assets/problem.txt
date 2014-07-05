@@ -33,6 +33,8 @@ from npm.
 Like before, you can use the `domify` package from npm to turn the html
 string into an html element. Implement an `.appendTo(target)` function that
 adds your dom element to the target with `target.appendChild(elem)`.
+You can use `elem.querySelector(selector)` to query for references to dom
+elements using a css selector string.
 
 Finally, your widget should register a form "submit" listener with
 `.addEventListener()` on your html form element. `.addEventListener()` is
