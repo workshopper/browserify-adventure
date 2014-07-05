@@ -8,6 +8,9 @@ var names = require('../menu.json').filter(function (name) {
     return !/^!/.test(name)
 });
 
+var args = process.argv.slice(2);
+if (args) names = args;
+
 var dirs = names.map(function (name) {
     return path.join(
         __dirname, '../solutions',
@@ -42,17 +45,19 @@ var customBuild = {
 var customRun = {
     'BUILD A WIDGET': function (t) {
         setTimeout(function () {
-            var ps = spawn('xvfb-run', [
-                '-a', 'chromium-browser', 'http://localhost:55500'
+            var ps = spawn('chromium-browser', [
+                'http://localhost:55500'
             ]);
             t.on('end', function () { ps.kill('SIGKILL') });
         }, 1000);
     },
     'WIDGET WITH ASSETS': function (t) {
         setTimeout(function () {
-            var ps = spawn('xvfb-run', [
-                '-a', 'chromium-browser', 'http://localhost:55500'
+            var ps = spawn('chromium-browser', [
+                'http://localhost:55500'
             ]);
+            ps.stdout.pipe(process.stderr);
+            ps.stderr.pipe(process.stderr);
             t.on('end', function () { ps.kill('SIGKILL') });
         }, 1000);
     }
