@@ -1,0 +1,40 @@
+This time the verifier will call your code. It will do something like this:
+
+  var Widget = require('widget');
+  var w = Widget();
+  w.setName('beep boop');
+  w.appendTo(document.body);
+
+You should implement the widget module that will be loaded with
+`require('widget')`. Your widget module should create an html element from
+the html string:
+
+  <div>Hello <span class="name"></span>!</div>
+
+To turn this html string into a dom element, you can use the domify package
+from npm:
+
+  npm install domify
+
+and then do `require('domify')` to get a `domify(html)` function that
+returns html elements. Otherwise you can create a dom element with
+`document.createElement('div')` and then set its innerHTML directly.
+
+Your widget module will need to implement `w.setName(str)` and
+`w.appendTo(target)`. `w.setName(str)` will need to update the "name"
+span's inner context with `str`. You can set the span element's
+`.textContent` once you have a handle on the span which you can obtain with
+`elem.querySelector('css selector goes here')`.
+
+You will also need to implement `w.appendTo(target)`, which appends the
+widget's internal html element to `target`. You can use
+`target.appendChild(elem)` to append the widget's element to the target.
+
+Compile your program with `browserify -r ./widget.js:widget` to create a
+bundle that will expose `require('widget')` to the environment and pipe the
+bundle output into `$ADVENTURE_COMMAND verify` like this:
+
+  browserify -d -r ./widget.js:widget | $ADVENTURE_COMMAND verify
+
+The `-d` turns on debug mode so you will get a stack trace with the proper
+line offsets if there is an error.
