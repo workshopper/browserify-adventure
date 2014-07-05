@@ -30,7 +30,8 @@
     "tape": "^2.13.3",
     "uniq": "^1.0.1",
     "through2": "~0.5.1",
-    "insert-css": "~0.2.0"
+    "insert-css": "~0.2.0",
+    "inherits": "^2.0.1"
   },
   "scripts": {
     "test": "tape test/*.js"
