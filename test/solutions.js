@@ -47,6 +47,14 @@ var customRun = {
             ]);
             t.on('end', function () { ps.kill('SIGKILL') });
         }, 1000);
+    },
+    'WIDGET WITH ASSETS': function (t) {
+        setTimeout(function () {
+            var ps = spawn('xvfb-run', [
+                '-a', 'chromium-browser', 'http://localhost:55500'
+            ]);
+            t.on('end', function () { ps.kill('SIGKILL') });
+        }, 1000);
     }
 };
 
