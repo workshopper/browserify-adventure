@@ -21,6 +21,12 @@ var customBuild = {
         b.require(path.join(dir, 'widget.js'), { expose: 'widget' });
         return b.bundle();
     },
+    'WIDGET WITH ASSETS': function (dir) {
+        var b = browserify();
+        b.transform('brfs');
+        b.require(path.join(dir, 'widget.js'), { expose: 'widget' });
+        return b.bundle();
+    },
     'USING TRANSFORMS': function (dir) {
         var b = browserify(path.join(dir, 'main.js'));
         b.transform('brfs');
