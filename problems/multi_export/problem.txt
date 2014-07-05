@@ -7,7 +7,7 @@ still useful in some circumstances, such a protocol with `.parse()` and
 For this level, call `prompt()` twice from your entry file to obtain 2
 values: the first is a string you should parse into an array of objects and
 the second value is an array you should serialize back into a string. Print
-the return values with `console.log()`.
+each return value with `console.log()`.
 
 In a second file `./ndjson.js`, export a `parse()` and `stringify()`
 function by assigning properties onto the `exports` object.
