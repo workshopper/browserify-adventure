@@ -9,7 +9,7 @@ var names = require('../menu.json').filter(function (name) {
 });
 
 var args = process.argv.slice(2);
-if (args) names = args;
+if (args.length) names = args;
 
 var dirs = names.map(function (name) {
     return path.join(
