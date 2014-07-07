@@ -1,7 +1,7 @@
 Last time in "single export" we used `module.exports` to export a single
 function. There is another form called simply `exports` that you can attach
 properties to. This is a less common way of exporting functionality but is
-still useful in some circumstances, such a protocol with `.parse()` and
+still useful in some circumstances, such as a protocol with `.parse()` and
 `.stringify()` functions which are the inverses of each other.
 
 For this level, call `prompt()` twice from your entry file to obtain 2
