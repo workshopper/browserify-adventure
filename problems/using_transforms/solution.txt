@@ -2,12 +2,12 @@ Here's the reference solution:
 
   var fs = require('fs');
   var txt = fs.readFileSync('$WAKE_FILE', 'utf8');
-  var printf = require('printf');
-  
+  var sprintf = require('sprintf');
+
   var lines = txt.split('\n');
   lines.forEach(function (line, index) {
       if (index % 5 === 0) {
-          console.log(printf('%3d %s', index, line));
+          console.log(sprintf('%3d %s', index, line));
       }
       else {
           console.log('    ' + line);

@@ -1,11 +1,11 @@
 var fs = require('fs');
 var txt = fs.readFileSync(__dirname + '/../../problems/using_transforms/wake.txt', 'utf8');
-var printf = require('printf');
+var sprintf = require('sprintf');
 
 var lines = txt.split('\n');
 lines.forEach(function (line, index) {
     if (index % 5 === 0) {
-        console.log(printf('%3d %s', index, line));
+        console.log(sprintf('%3d %s', index, line));
     }
     else {
         console.log('    ' + line);
