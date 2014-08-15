@@ -34,7 +34,7 @@
     "inherits": "^2.0.1"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "node test/solutions.js"
   },
   "repository": {
     "type": "git",
