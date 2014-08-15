@@ -4,7 +4,10 @@ var verify = require('adventure-verify');
 var concat = require('concat-stream');
 var http = require('http');
 var shoe = require('shoe');
-var ecstatic = require('ecstatic')(path.join(__dirname, 'static'));
+var ecstatic = require('ecstatic')({
+    root: path.join(__dirname, 'static'),
+    cache: 0
+});
 var split = require('split');
 var through = require('through2');
 

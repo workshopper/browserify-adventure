@@ -46,7 +46,8 @@ var customRun = {
     'BUILD A WIDGET': function (t) {
         setTimeout(function () {
             var ps = spawn('chromium-browser', [
-                'http://localhost:55500'
+                'http://localhost:55500',
+                '--incognito'
             ]);
             t.on('end', function () { ps.kill('SIGKILL') });
         }, 1000);
@@ -54,7 +55,8 @@ var customRun = {
     'WIDGET WITH ASSETS': function (t) {
         setTimeout(function () {
             var ps = spawn('chromium-browser', [
-                'http://localhost:55500'
+                'http://localhost:55501',
+                '--incognito'
             ]);
             ps.stdout.pipe(process.stderr);
             ps.stderr.pipe(process.stderr);
