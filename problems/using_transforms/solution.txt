@@ -2,7 +2,7 @@ Here's the reference solution:
 
   var fs = require('fs');
   var txt = fs.readFileSync('$WAKE_FILE', 'utf8');
-  var sprintf = require('sprintf');
+  var sprintf = require('sprintf-js');
 
   var lines = txt.split('\n');
   lines.forEach(function (line, index) {
