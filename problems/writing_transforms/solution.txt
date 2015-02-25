@@ -2,7 +2,7 @@ Here is the reference solution for the more adventurous option:
 
   var through = require('through2');
   var split = require('split');
-  var sprintf = require('sprintf');
+  var sprintf = require('sprintf-js').sprintf;
   var quote = require('quote-stream');
   var combiner = require('stream-combiner');
   

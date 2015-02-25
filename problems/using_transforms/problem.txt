@@ -14,7 +14,7 @@ You should pad the line number to 3 characters followed by a single space,
 followed by the original line contents. For lines without printed line
 numbers, print 4 spaces followed by the original line contents.
 
-Protip: you can use the sprintf module (`npm install sprintf`) with a
+Protip: you can use the sprintf-js module (`npm install sprintf-js`) with a
 format string of `"%3d %s"` to print the line number with the line in the
 proper format.
 
