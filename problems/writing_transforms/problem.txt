@@ -1,13 +1,17 @@
 Building upon the previous "using transforms" second, write a custom
 browserify transform so that in main.js you can simply do:
 
-  var txt = require('$WAKE_FILE');
+  var txt = require('./wake.txt');
   console.log(txt);
 
 and the `txt` output will be formatted with the proper line-numbering as
 from the previous level: printf("%3d %s", lineNum, line) every 5th line
 line numbers starting from zero and four leading spaces on the other
 lines.
+
+You'll first need to copy wake.txt to your local directory:
+
+  cp $WAKE_FILE .
 
 You will need to factor out your formatting code to be a node transform
 stream, which you can learn more about in the stream-adventure nodeschool
