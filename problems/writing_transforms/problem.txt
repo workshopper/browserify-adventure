@@ -1,11 +1,11 @@
-Building upon the previous "using transforms" second, write a custom
+Building upon the previous "using transforms" section, write a custom
 browserify transform so that in main.js you can simply do:
 
   var txt = require('$WAKE_FILE');
   console.log(txt);
 
 and the `txt` output will be formatted with the proper line-numbering as
-from the previous level: printf("%3d %s", lineNum, line) every 5th line
+from the previous level: printf("%3d %s", lineNum, line) every 5th line,
 line numbers starting from zero and four leading spaces on the other
 lines.
 
