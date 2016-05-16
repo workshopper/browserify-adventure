@@ -1,6 +1,6 @@
 {
   "name": "browserify-adventure",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "learn browserify with this educational adventure",
   "main": "index.js",
   "bin": {
