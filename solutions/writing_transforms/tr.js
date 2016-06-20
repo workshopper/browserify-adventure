@@ -1,5 +1,5 @@
 var through = require('through2');
-var split = require('split');
+var split = require('split2');
 var sprintf = require('sprintf');
 var quote = require('quote-stream');
 var combine = require('stream-combiner2');

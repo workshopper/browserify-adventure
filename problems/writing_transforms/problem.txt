@@ -41,7 +41,7 @@ output that looks like:
 
 You can either buffer up in the input with the `concat-stream` module and
 run your previous solution to the previous "using transforms" level or if
-you are feeling adventurous, you can string together the `split`,
+you are feeling adventurous, you can string together `split2`,
 `quote-stream`, and `through2` modules with `stream-combiner2` to build a
 transform that processes the files in-place.
 
